@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+
+
+  </head>
+  <body>
+
+<style>
+    p{
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 1em;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    }
+
+</style>
+
+<p> 
+    {% if  geo_my_location%}
+            <p> The latitude is...</p>
+            <p>{{result_address.get('Latitude')}}</p>
+            <p> The longitude is...</p>
+            <p>{{result_address.get('Longitude')}}</p>
+
+
+    {% endif %}
+</p>
+
