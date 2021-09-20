@@ -1,13 +1,11 @@
 import requests
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app=Flask(__name__)
 
 URL_LOCATION = "https://us1.locationiq.com/v1/search.php"
-ADDRESS = input("Input the address: ")
+
 PRIVATE_TOKEN = "pk.63773c9810c6728d01e8c90ebcc93ff7"
-
-
 def geo_my_location(ADDRESS):
     """
     Takes in json does magic spits out a dict 
@@ -23,7 +21,6 @@ def geo_my_location(ADDRESS):
     res1['Longitude'] = response.json()[0]['lon']
     return res1
 
-
 @app.route('/')
 def index():
     """
@@ -31,8 +28,7 @@ def index():
     """
     return render_template('index.html')
 
-
-@app.route("/address")
+@app.route("/address", methods=['GET', 'POST'])
 def address_():
     """
     address result html
@@ -40,7 +36,6 @@ def address_():
     res = request.args.get("address")
     result_address = geo_my_location(res)
     return render_template("result.html", geo_my_location=True, result_address=result_address)
-
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
