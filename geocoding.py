@@ -27,7 +27,7 @@ def geo_my_location(ADDRESS):
 @app.route('/')
 def index():
     """
-    home html
+    home html address
     """
     return render_template('index.html')
 
