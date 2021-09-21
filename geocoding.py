@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 URL_LOCATION = "https://us1.locationiq.com/v1/search.php"
-ADDRESS = input("Input the address: ")
+
 PRIVATE_TOKEN = "pk.63773c9810c6728d01e8c90ebcc93ff7"
 
 
@@ -32,10 +32,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/address")
+@app.route("/address", methods=['GET', 'POST'])
 def address_():
     """
-    address result html
+    address result for html
     """
     res = request.args.get("address")
     result_address = geo_my_location(res)
