@@ -35,7 +35,7 @@ def index():
 @app.route("/address", methods=['GET', 'POST'])
 def address_():
     """
-    address result html
+    address result for html
     """
     res = request.args.get("address")
     result_address = geo_my_location(res)
